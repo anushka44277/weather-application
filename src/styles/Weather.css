@@ -1,0 +1,375 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f7ff;
+  color: #0f172a;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+/* Layout */
+.wd-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr 280px;
+  min-height: 100vh;
+}
+
+/* ── Dark mode overrides ── */
+.wd-dark .wd-sidebar { background: #1e293b; border-color: #334155; }
+.wd-dark .wd-logo { color: #e2e8f0; }
+.wd-dark .wd-nav-item { color: #94a3b8; }
+.wd-dark .wd-nav-item:hover { background: #334155; color: #e2e8f0; }
+.wd-dark .wd-logout { background: #2d1f1f; color: #f87171; }
+.wd-dark .wd-logout:hover { background: #3d2020; }
+.wd-dark .wd-main { background: #0f172a; }
+.wd-dark .wd-topbar { background: #1e293b; border-color: #334155; }
+.wd-dark .wd-page-title { color: #e2e8f0; }
+.wd-dark .wd-user { color: #94a3b8; }
+.wd-dark .wd-right { background: #0f172a; border-color: #334155; }
+.wd-dark .db-card { background: #1e293b; }
+.wd-dark .db-label { color: #94a3b8; }
+.wd-dark .db-value { color: #e2e8f0; }
+.wd-dark .db-greeting h2 { color: #e2e8f0; }
+.wd-dark .db-greeting p { color: #64748b; }
+.wd-dark .db-section-title { color: #e2e8f0; }
+.wd-dark .db-chip-secondary { background: #1e293b; color: #94a3b8; border-color: #334155; }
+.wd-dark .db-chip-secondary:hover { background: #334155; }
+.wd-dark .wd-search-inline input { background: #1e293b; border-color: #334155; color: #e2e8f0; }
+.wd-dark .wd-faq-item { background: #1e293b; }
+.wd-dark .wd-faq-q { color: #e2e8f0; }
+.wd-dark .wd-faq-a { color: #64748b; }
+.wd-dark .wp-btn-fav, .wd-dark .wp-btn-default { background: #1e293b; border-color: #334155; color: #e2e8f0; }
+.wd-dark .wd-toggle-btn { background: #334155; color: #e2e8f0; border-color: #475569; }
+.wd-dark .wd-toggle-btn:hover { background: #475569; }
+
+/* Left Sidebar */
+.wd-sidebar {
+  background: white;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e2e8f0;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.wd-logo {
+  font-size: 18px;
+  color: #0f172a;
+  margin-bottom: 28px;
+  padding-left: 8px;
+}
+
+.wd-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.wd-nav-item {
+  text-align: left;
+  padding: 10px 12px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wd-nav-item:hover { background: #f0f7ff; color: #0f172a; }
+
+.wd-nav-active {
+  background: linear-gradient(135deg, #4FACFE, #00F2FE);
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.wd-logout {
+  padding: 10px 12px;
+  border: none;
+  background: #fff0f0;
+  color: #ef4444;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.wd-logout:hover { background: #fee2e2; }
+
+/* Main */
+.wd-main {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Top Bar */
+.wd-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  gap: 16px;
+}
+
+.wd-search {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  max-width: 400px;
+}
+
+.wd-search input {
+  flex: 1;
+  padding: 9px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.wd-search input:focus { border-color: #4FACFE; }
+
+.wd-search button {
+  padding: 9px 16px;
+  background: #FFB703;
+  color: #0f172a;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.wd-search button:hover { background: #e6a502; }
+
+/* Topbar actions */
+.wd-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wd-user {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+.wd-toggle-btn {
+  padding: 6px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: white;
+  color: #0f172a;
+  transition: background 0.2s;
+}
+.wd-toggle-btn:hover { background: #f0f7ff; }
+
+/* Last updated */
+.wp-updated {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-left: auto;
+}
+
+/* Content */
+.wd-content { padding: 24px; flex: 1; }
+
+.wd-status { color: #64748b; font-size: 14px; text-align: center; margin-top: 40px; }
+.wd-error { color: #ef4444; }
+
+.wd-section { padding: 8px 0; }
+.wd-section h2 { font-size: 20px; color: #0f172a; margin-bottom: 20px; }
+
+.wd-info-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wd-info-card p { font-size: 14px; color: #64748b; margin: 0; }
+.wd-info-card p span { font-weight: 600; color: #0f172a; margin-right: 8px; }
+
+.wd-settings-form {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 400px;
+}
+
+.wd-settings-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.wd-settings-form input {
+  padding: 9px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.wd-settings-form input:focus { border-color: #4FACFE; }
+
+.wd-settings-form button {
+  padding: 10px;
+  background: #FFB703;
+  color: #0f172a;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.wd-saved { font-size: 13px; color: green; margin: 0; }
+
+.wd-faq { display: flex; flex-direction: column; gap: 12px; }
+
+.wd-faq-item {
+  background: white;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.wd-faq-q { font-size: 14px; font-weight: 600; color: #0f172a; margin: 0 0 4px; }
+.wd-faq-a { font-size: 13px; color: #64748b; margin: 0; }
+
+.wd-search-inline {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.wd-search-inline input {
+  flex: 1;
+  padding: 9px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.wd-search-inline input:focus { border-color: #4FACFE; }
+
+.wd-search-inline button {
+  padding: 9px 16px;
+  background: #FFB703;
+  color: #0f172a;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.db-greeting {
+  margin-bottom: 20px;
+}
+
+.db-greeting h2 { font-size: 22px; color: #0f172a; margin-bottom: 4px; }
+.db-greeting p { font-size: 13px; color: #64748b; }
+
+.db-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.db-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.db-weather { border-top: 3px solid #4FACFE; }
+.db-cta { border-top: 3px solid #FFB703; cursor: pointer; }
+.db-cta:hover { background: #fffbeb; }
+
+.db-label { font-size: 12px; color: #64748b; margin: 0; }
+.db-value { font-size: 18px; font-weight: 700; color: #0f172a; margin: 0; }
+.db-val-sm { font-size: 14px; }
+
+.db-section-block { margin-top: 20px; }
+.db-section-title { font-size: 14px; font-weight: 600; color: #0f172a; margin-bottom: 10px; }
+
+.db-chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.db-chip {
+  padding: 6px 14px;
+  background: #FFB703;
+  color: #0f172a;
+  border: none;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.db-chip:hover { background: #e6a502; }
+.db-chip-secondary {
+  background: #f0f7ff;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+}
+.db-chip-secondary:hover { background: #e2e8f0; }
+
+/* WeatherPage action buttons */
+.wp-actions { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+.wp-btn-fav, .wp-btn-default {
+  padding: 8px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: white;
+  color: #0f172a;
+}
+.wp-btn-fav:hover { background: #fffbeb; border-color: #FFB703; }
+.wp-btn-fav-active { background: #fffbeb; border-color: #FFB703; color: #b45309; }
+.wp-btn-default:hover { background: #f0fdf4; border-color: #22c55e; }
+.wp-btn-default-active { background: #f0fdf4; border-color: #22c55e; color: #15803d; }
+
+/* Right Sidebar */
+.wd-right {
+  background: #f0f7ff;
+  padding: 16px;
+  border-left: 1px solid #e2e8f0;
+  overflow-y: auto;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
